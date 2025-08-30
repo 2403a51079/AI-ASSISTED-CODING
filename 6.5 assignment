@@ -1,0 +1,275 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyP1bSrnzbGm3QcCRAlo+G6K",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/2403a51079/AI-ASSISTED-CODING/blob/main/6.5%20assignment\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 14,
+      "metadata": {
+        "id": "U6DkVx9q9YBD"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "4a088e53"
+      },
+      "source": [
+        "class Product:\n",
+        "    def __init__(self, name, price, quantity):\n",
+        "        self.name = name\n",
+        "        self.price = price\n",
+        "        self.quantity = quantity\n",
+        "\n",
+        "    def calculate_value(self):\n",
+        "        return self.price * self.quantity"
+      ],
+      "execution_count": 15,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "c1fb8a4a"
+      },
+      "source": [
+        "laptop = Product(\"Laptop\", 1200, 5)"
+      ],
+      "execution_count": 16,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "394644c8",
+        "outputId": "bbf9dceb-db50-47c9-f32b-675142e62c56"
+      },
+      "source": [
+        "laptop_value = laptop.calculate_value()\n",
+        "print(f\"The value of the {laptop.name} is: {laptop_value}\")"
+      ],
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The value of the Laptop is: 6000\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "4a9c1335"
+      },
+      "source": [
+        "class Warehouse:\n",
+        "    def __init__(self):\n",
+        "        self.products = []\n",
+        "\n",
+        "    def add_product(self, product):\n",
+        "        if isinstance(product, Product):\n",
+        "            self.products.append(product)\n",
+        "        else:\n",
+        "            print(\"Invalid product type.\")\n",
+        "\n",
+        "    def list_products(self):\n",
+        "        for product in self.products:\n",
+        "            print(f\"Product: {product.name}, Price: {product.price}, Quantity: {product.quantity}\")\n",
+        "\n",
+        "    def display_most_valuable_product(self):\n",
+        "        if not self.products:\n",
+        "            print(\"The warehouse is empty.\")\n",
+        "            return\n",
+        "\n",
+        "        most_valuable_product = max(self.products, key=lambda product: product.calculate_value())\n",
+        "        print(f\"The most valuable product is: {most_valuable_product.name} with a total value of {most_valuable_product.calculate_value()}\")"
+      ],
+      "execution_count": 18,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "f5a852d3"
+      },
+      "source": [
+        "warehouse = Warehouse()"
+      ],
+      "execution_count": 19,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "20dce0d4"
+      },
+      "source": [
+        "warehouse.add_product(laptop)"
+      ],
+      "execution_count": 20,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "9ddf124d",
+        "outputId": "6a077b11-cedf-4fa9-b8de-d951439adb47"
+      },
+      "source": [
+        "warehouse.list_products()"
+      ],
+      "execution_count": 21,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Product: Laptop, Price: 1200, Quantity: 5\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "223873a7"
+      },
+      "source": [
+        "mouse = Product(\"Mouse\", 25, 50)\n",
+        "keyboard = Product(\"Keyboard\", 75, 30)\n",
+        "pc = Product(\"PC\", 800, 10)\n",
+        "\n",
+        "warehouse.add_product(mouse)\n",
+        "warehouse.add_product(keyboard)\n",
+        "warehouse.add_product(pc)"
+      ],
+      "execution_count": 22,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "44a5c1e2",
+        "outputId": "52b26161-4e33-45d8-b62c-c027d3e39165"
+      },
+      "source": [
+        "warehouse.list_products()"
+      ],
+      "execution_count": 23,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Product: Laptop, Price: 1200, Quantity: 5\n",
+            "Product: Mouse, Price: 25, Quantity: 50\n",
+            "Product: Keyboard, Price: 75, Quantity: 30\n",
+            "Product: PC, Price: 800, Quantity: 10\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "5230f202",
+        "outputId": "bd9cf7f0-860c-4676-dfcb-73a978b6ab89"
+      },
+      "source": [
+        "warehouse.display_most_valuable_product()"
+      ],
+      "execution_count": 24,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The most valuable product is: PC with a total value of 8000\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "02884afa"
+      },
+      "source": [
+        "# Recreate the warehouse instance with the updated class definition\n",
+        "warehouse = Warehouse()\n",
+        "\n",
+        "# Add the products back to the new warehouse instance\n",
+        "warehouse.add_product(laptop)\n",
+        "warehouse.add_product(mouse)\n",
+        "warehouse.add_product(keyboard)\n",
+        "warehouse.add_product(pc)"
+      ],
+      "execution_count": 25,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "f8d755e4",
+        "outputId": "f8ed4a20-7df5-4cbc-de6d-2ad088b782a2"
+      },
+      "source": [
+        "warehouse.display_most_valuable_product()"
+      ],
+      "execution_count": 26,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The most valuable product is: PC with a total value of 8000\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
